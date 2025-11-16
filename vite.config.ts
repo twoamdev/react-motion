@@ -7,5 +7,10 @@ import netlifyReactRouter from "@netlify/vite-plugin-react-router";
 
 
 export default defineConfig({
-  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  plugins: [
+    tailwindcss(), 
+    reactRouter(), 
+    tsconfigPaths(),
+    netlifyReactRouter(),
+  ],
 });
