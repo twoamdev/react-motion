@@ -2,11 +2,36 @@ import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 import {Link} from "react-router";
 import { Simple } from "../rive/rive";
+import { useResponsiveWidth } from "~/hooks/ResponsiveWidth"; 
 
 export function Welcome() {
+  const riveContainerWidth = useResponsiveWidth();
   return (
-    <main className="flex items-center justify-center pt-16 pb-4">
-      <Simple/>
+    <main className="grid grid-rows-1 p-4 gap-y-4">
+      <div className="flex flex-col-reverse sm:flex-row items-end sm:items-start gap-x-4">
+
+        <Simple widthRef={riveContainerWidth}/>
+    
+        
+        <div className="flex-1">
+          <div className="flex flex-col items-end gap-y-1">
+            <div className="h-[1.7px] bg-white w-full"></div>
+            <p>Rive Exploration</p>
+          </div> 
+        </div>
+      </div>
+      
+      <div className="flex flex-col-reverse sm:flex-row items-end sm:items-start gap-x-4">
+   
+        <Simple widthRef={riveContainerWidth}/>
+   
+        <div className="flex-1">
+          <div className="flex flex-col items-end gap-y-1">
+            <div className="h-[1.7px] bg-white w-full"></div>
+            <p>Motion Exploration</p>
+          </div> 
+        </div>
+      </div>
     </main>
   );
 }

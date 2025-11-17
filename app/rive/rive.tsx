@@ -9,9 +9,12 @@ type RiveType = React.ComponentType<{
   style?: React.CSSProperties;
 }>;
 
-export const Simple = () => {
-  const [Rive, setRive] = useState<RiveType | null>(null);
+type SimpleProps = {
+    widthRef?: number; // optional
+};
 
+export const Simple = ({widthRef = 500}: SimpleProps) => {
+  const [Rive, setRive] = useState<RiveType | null>(null);
   // Load Rive only on the client
   useEffect(() => {
     import("@rive-app/react-canvas").then((mod) => {
@@ -31,7 +34,7 @@ export const Simple = () => {
         src="/animations/test.riv"
         stateMachines="State Machine 1"
         autoplay
-        style={{ width: 800, height: 800 }}
+        style={{ width: widthRef, height: widthRef }}
       />
     </Suspense>
   );
